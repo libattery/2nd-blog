@@ -3,33 +3,7 @@ from django.http import HttpResponseRedirect
 
 import hml_equation_parser as hp
 
-from .forms import NameForm
 from .forms import eqInputForm
-
-
-def get_name(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = NameForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            hwpeq = form.cleaned_data['your_name'] #           hwpeq = your_name
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-#            return HttpResponseRedirect('')
-#            return HttpResponseRedirect('')
-            form = NameForm()
-            return render(request, 'hwp2latex/name.html', {'hwpeq': hwpeq, 'form': form})
-#            return redirect('get_name',{'form': form})
-
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = NameForm()
-
-    return render(request, 'hwp2latex/name.html', {'form': form})
 
 def converter(request):
     # if this is a POST request we need to process the form data

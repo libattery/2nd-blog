@@ -1,0 +1,16 @@
+<html>
+  <body>
+
+    {% if hwpeq %}
+
+    your hwpeq input is {{ hwpeq }} <br>
+
+    {% endif %}
+
+    <form action="/get_name" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

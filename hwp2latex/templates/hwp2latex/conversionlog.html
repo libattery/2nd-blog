@@ -1,0 +1,19 @@
+{% extends 'hwp2latex/base.html' %}
+
+{% block content %}
+<h2>Conversion Log</h2>
+<!--list view-->
+{% if user.is_authenticated %}
+  <ol>
+    {% for conversionlog in conversionlogs %}
+      <li>
+        <span style="color:MediumBlue ">{{ conversionlog.hwp_eq }}</span>
+        <span class="date">&nbsp; &rarr; &nbsp;</span>
+        <span style="color:Crimson">{{ conversionlog.latex_eq }}</span>
+        <span class="date">&nbsp; &nbsp; &nbsp; @ {{ conversionlog.created_date }}</span>
+      </li>
+    {% endfor %}
+  </ol>
+{% endif%}
+
+{% endblock %}

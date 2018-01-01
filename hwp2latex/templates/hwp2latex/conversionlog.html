@@ -4,9 +4,10 @@
 <h2>Conversion Log</h2>
 <!--list view-->
 {% if user.is_authenticated %}
-  <ol>
+<!--  <ol>
     {% for conversionlog in conversionlogs %}
       <li>
+        <span>\({{ conversionlog.latex_eq }}\)&nbsp;&nbsp;</span>
         <span style="color:MediumBlue ">{{ conversionlog.hwp_eq }}</span>
         <span class="date">&nbsp; &rarr; &nbsp;</span>
         <span style="color:Crimson">{{ conversionlog.latex_eq }}</span>
@@ -14,6 +15,33 @@
       </li>
     {% endfor %}
   </ol>
+-->
+
+<!--  <table class="css-serial" style="border-collapse: separate; border-spacing: 10px;">-->
+  <table class="css-serial" style="border-collapse: separate; border-spacing: 10px;">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Equation</th>
+        <th>Input</th>
+        <th>Output</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for conversionlog in conversionlogs %}
+    <tr>
+      <td>. </td>       <!--serial-number "."-->
+      <td>\({{ conversionlog.latex_eq }}\)</td>
+      <td>{{ conversionlog.hwp_eq }}</td>
+      <td>{{ conversionlog.latex_eq }}</td>
+      <td>{{ conversionlog.created_date }}</td>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+
+
 {% endif%}
 
 {% endblock %}

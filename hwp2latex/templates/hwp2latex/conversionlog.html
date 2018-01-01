@@ -2,22 +2,7 @@
 
 {% block content %}
 <h2>Conversion Log</h2>
-<!--list view-->
 {% if user.is_authenticated %}
-<!--  <ol>
-    {% for conversionlog in conversionlogs %}
-      <li>
-        <span>\({{ conversionlog.latex_eq }}\)&nbsp;&nbsp;</span>
-        <span style="color:MediumBlue ">{{ conversionlog.hwp_eq }}</span>
-        <span class="date">&nbsp; &rarr; &nbsp;</span>
-        <span style="color:Crimson">{{ conversionlog.latex_eq }}</span>
-        <span class="date">&nbsp; &nbsp; &nbsp; @ {{ conversionlog.created_date }}</span>
-      </li>
-    {% endfor %}
-  </ol>
--->
-
-<!--  <table class="css-serial" style="border-collapse: separate; border-spacing: 10px;">-->
   <table class="css-serial" style="border-collapse: separate; border-spacing: 10px;">
     <thead>
       <tr>
